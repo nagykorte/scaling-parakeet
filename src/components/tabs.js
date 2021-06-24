@@ -16,15 +16,10 @@ const Tabs = () => {
 
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
-      {/* <a href='#page1'> */}
+      <a href='#page1'>
         <FontAwesomeIcon icon={faCircle}  onClick={() => {
-          console.log(window.screenX);
-          console.log(window.screenY);
-          // while (window.screen.position > 0) {
-          //   window.screen.position = window.screen.position - 10
-          // }
         }} />
-      {/* </a> */}
+      </a>
       <br></br>
       <a href='#page2'>
         <FontAwesomeIcon icon={faCircleNotch} />
