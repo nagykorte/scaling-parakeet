@@ -17,7 +17,7 @@ import Page from "../components/page"
 import Seo from "../components/seo"
 // import { fixedImageSizes } from "gatsby-plugin-image/dist/src/image-utils"
 
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('contextmenu', event => event.preventDefault());
 const IndexPage = () => (
   <Layout>
 

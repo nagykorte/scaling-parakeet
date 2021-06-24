@@ -17,7 +17,7 @@ const TopBar = () => {
 
   return (
       <div style={{ position: 'fixed', height: '3vh', width: '100%', top: '0px' }}>
-        <p>
+        <p style={{ marginLeft: '10px' }}>
           {'>'}
         </p>
       </div>
