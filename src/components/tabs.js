@@ -12,12 +12,7 @@ import { faCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 import "./layout.css"
 const Tabs = () => {
-  const [ position, setPosition ] = React.useState(0)
-
-  React.useEffect(()=> {
-    console.log(position)
-    setPosition(document.body.scrollTop)
-  }, [document.body.scrollTop])
+  const [ position, setPosition ] = React.useState(1)
 
   let scrollToPage = pageNumber => {
     window.scroll({
@@ -26,14 +21,22 @@ const Tabs = () => {
       behavior: 'smooth'
     });
   }
-  console.log(position)
+  document.addEventListener('scroll', (e) => {
+    if (document.documentElement.scrollTop > 1269) {
+      setPosition(3)
+    } else if (document.documentElement.scrollTop > 634) {
+      setPosition(2)
+    } else {
+      setPosition(1)
+    }
+  })
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
-      <FontAwesomeIcon icon={faCircle} onClick={() => { scrollToPage(0) }} />
+      <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
       <br></br>
-        <FontAwesomeIcon icon={faCircleNotch} onClick={()=>{scrollToPage(1)}} />
+      <FontAwesomeIcon icon={position === 2 ? faCircle : faCircleNotch} onClick={()=>{scrollToPage(1)}} />
       <br></br>
-      <FontAwesomeIcon icon={faCircleNotch} onClick={() => { scrollToPage(2) }} />
+      <FontAwesomeIcon icon={position === 3 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(2) }} />
     </div>
   )
 }
