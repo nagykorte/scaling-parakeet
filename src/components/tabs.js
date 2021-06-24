@@ -22,7 +22,7 @@ const Tabs = () => {
     });
   }
 
-  const handler = useCallback(
+  const handler = React.useCallback(
     () => {
       // Update coordinates
       if (document.documentElement.scrollTop > 1269) {
@@ -39,7 +39,7 @@ const Tabs = () => {
   );
 
   // Add event listener using our hook
-  useEventListener('scroll', handler, document);
+  React.useEventListener('scroll', handler, document);
 
 
 
