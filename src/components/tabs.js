@@ -21,23 +21,10 @@ const Tabs = () => {
       behavior: 'smooth'
     });
   }
-
-  // const handler = React.useCallback(
-  //   () => {
-  //     // Update coordinates
-  
-  //     // setCoords({ x: clientX, y: clientY });
-  //   },
-  //   [setPosition]
-  // );
-  
-  // // Add event listener using our hook
-  // React.useEventListener('scroll', handler);
-  
-  
+  let callback = () => false
   if (typeof document !== 'undefined') {
-    React.useEffect(()=> {
-                if (document.documentElement.scrollTop > 1269) {
+    callback = React.useEffect(()=> {
+          if (document.documentElement.scrollTop > 1269) {
             setPosition(3)
           } else if (document.documentElement.scrollTop > 634) {
             setPosition(2)
@@ -46,7 +33,7 @@ const Tabs = () => {
           }
   }, [document.documentElement.scrollTop])
 }
-
+  callback()
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
       <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
@@ -57,41 +44,5 @@ const Tabs = () => {
     </div>
   )
 }
-
-// // Hook
-// function useEventListener(eventName, handler, element = document) {
-//   // Create a ref that stores handler
-//   const savedHandler = React.useRef();
-
-//   // Update ref.current value if handler changes.
-//   // This allows our effect below to always get latest handler ...
-//   // ... without us needing to pass it in effect deps array ...
-//   // ... and potentially cause effect to re-run every render.
-//   React.useEffect(() => {
-//     savedHandler.current = handler;
-//   }, [handler]);
-
-//   React.useEffect(
-//     () => {
-//       // Make sure element supports addEventListener
-//       // On
-//       const isSupported = element && element.addEventListener;
-//       if (!isSupported) return;
-
-//       // Create event listener that calls handler function stored in ref
-//       const eventListener = (event) => savedHandler.current(event);
-
-//       // Add event listener
-//       element.addEventListener(eventName, eventListener);
-
-//       // Remove event listener on cleanup
-//       return () => {
-//         element.removeEventListener(eventName, eventListener);
-//       };
-//     },
-//     [eventName, element] // Re-run if eventName or element changes
-//   );
-// }
-
 
 export default Tabs
