@@ -11,23 +11,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 import "./layout.css"
-
 const Tabs = () => {
+  const [ position, setPosition ] = React.useState(0)
 
+  React.useEffect(()=> {
+    console.log(position)
+    setPosition(document.body.scrollTop)
+  }, [document.body.scrollTop])
+
+  let scrollToPage = pageNumber => {
+    window.scroll({
+      top: 635 * pageNumber,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+  console.log(position)
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
-      <a href='#page1'>
-        <FontAwesomeIcon icon={faCircle}  onClick={() => {
-        }} />
-      </a>
+      <FontAwesomeIcon icon={faCircle} onClick={() => { scrollToPage(0) }} />
       <br></br>
-      <a href='#page2'>
-        <FontAwesomeIcon icon={faCircleNotch} />
-      </a>
+        <FontAwesomeIcon icon={faCircleNotch} onClick={()=>{scrollToPage(1)}} />
       <br></br>
-      <a href='#page3'>
-        <FontAwesomeIcon icon={faCircleNotch} />
-      </a>
+      <FontAwesomeIcon icon={faCircleNotch} onClick={() => { scrollToPage(2) }} />
     </div>
   )
 }
