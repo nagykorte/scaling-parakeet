@@ -21,19 +21,16 @@ const Tabs = () => {
       behavior: 'smooth'
     });
   }
-  let callback = () => false
-  if (typeof document !== 'undefined') {
-    callback = React.useEffect(()=> {
-          if (document.documentElement.scrollTop > 1269) {
-            setPosition(3)
-          } else if (document.documentElement.scrollTop > 634) {
-            setPosition(2)
-          } else {
-            setPosition(1)
-          }
-  }, [document.documentElement.scrollTop])
-}
-  callback()
+    React.useEffect(()=> {
+      if (typeof document !== 'undefined' && document.documentElement.scrollTop > 1269) {
+        setPosition(3)
+      } else if (typeof document !== 'undefined' && document.documentElement.scrollTop > 634) {
+        setPosition(2)
+      } else {
+        setPosition(1)
+      }
+  }, [])
+
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
       <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
