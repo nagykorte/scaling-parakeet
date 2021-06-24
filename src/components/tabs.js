@@ -39,7 +39,7 @@ const Tabs = () => {
   );
 
   // Add event listener using our hook
-  React.useEventListener('scroll', handler, document);
+  React.useEventListener('scroll', handler);
 
 
 
@@ -72,7 +72,7 @@ const Tabs = () => {
 }
 
 // Hook
-function useEventListener(eventName, handler, element = window) {
+function useEventListener(eventName, handler, element = document) {
   // Create a ref that stores handler
   const savedHandler = React.useRef();
 
