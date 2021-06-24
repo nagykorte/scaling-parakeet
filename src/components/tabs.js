@@ -47,22 +47,6 @@ const Tabs = () => {
   }, [document.documentElement.scrollTop])
 }
 
-
-
-
-
-
-
-
-
-
-
-
-  if (document !== undefined ) {
-    document.addEventListener('scroll', (e) => {
-    })
-  }
-
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
       <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
