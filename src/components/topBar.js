@@ -1,25 +1,28 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
-import PropTypes from "prop-types"
 
 import "./layout.css"
 
-const TopBar = () => {
-
-  let time = new Date()
-  let addAZero = (time.getHours() != 10 && time.getHours() != 11 && time.getHours() != 12 && time.getHours() != 22 && time.getHours() != 23)
-
+const TopBar = ({ setForceMoment }) => {
+  // console.log(setForceMoment)
+  const [isClicked, setIsClicked] = React.useState(false)
+  const handleClick = () => setIsClicked(!isClicked)
+  let barClass = isClicked ? 'topMenu topMenuClicked' : 'topMenu'
   return (
-      <div style={{ position: 'fixed', height: '3vh', width: '100%', top: '0px' }}>
-        <p style={{ marginLeft: '10px' }}>
+      <div style={{ position: 'fixed', height: '3vh', width: '100%', top: '0px', zIndex: '999' }}>
+        <p className={barClass} style={{ marginLeft: '10px', display: 'block', width: '8px' }} onClick={e => handleClick()}>
           {'>'}
         </p>
+        { isClicked && <div style={{ marginLeft: '10px' }}>
+          <p onClick={() => setForceMoment('morning')}>
+          morning
+          </p>
+          <p onClick={() => setForceMoment('evening')}>
+            evening
+          </p>
+          <p onClick={() => setForceMoment('night')}>
+              night
+          </p>
+        </div>}
       </div>
   )
 }

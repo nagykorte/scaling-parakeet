@@ -6,14 +6,11 @@
  */
 
 import * as React from "react"
-import PropTypes from "prop-types"
-
-import "./layout.css"
 
 const Clock = () => {
 
   let time = new Date()
-  let addAZero = (time.getHours() != 10 && time.getHours() != 11 && time.getHours() != 12 && time.getHours() != 22 && time.getHours() != 23)
+  let addAZero = (time.getHours() !== 10 && time.getHours() !== 11 && time.getHours() !== 12 && time.getHours() !== 22 && time.getHours() !== 23)
 
   return (
     <>

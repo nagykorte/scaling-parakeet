@@ -1,8 +1,7 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
+// import { Link } from "gatsby"
+// import { StaticImage } from "gatsby-plugin-image"
+import "../components/layout.css"
 
 import Layout from "../components/layout"
 import Title from "../components/title"
@@ -14,29 +13,51 @@ import Poem from "../components/poem"
 import Seo from "../components/seo"
 // import { fixedImageSizes } from "gatsby-plugin-image/dist/src/image-utils"
 if (typeof document !== 'undefined') document.addEventListener('contextmenu', event => event.preventDefault());
-
-const IndexPage = () => (
+const IndexPage = () => {
+  const [isClicked, setIsClicked] = React.useState(false)
+  const [moment, setMoment] = React.useState(new Date().getHours() < 8 ? 'night' : new Date().getHours() < 16 ? 'morning' : 'evening')
+  // const [forceMoment, setForceMoment] = React.useState(forceMoment || '')
+  const handleClick = () => setIsClicked(!isClicked)
+  let barClass = isClicked ? 'topMenu topMenuClicked' : 'topMenu'
+  // React.useEffect(() => {
+  //   if (forceMoment !== '') setMoment(forceMoment)
+  // },[forceMoment])
+  return (
   <Layout>
 
+    {/* PUNTOS LATERALES */}
+    <Tabs />
     <Seo title="karen's webz yall" />
     <Poem />
     <Page backgroundColor='gray' number={1}>
     </Page>
 
-    <Page backgroundColor='darkgray' number={2}>
+    <Page backgroundColor='black' number={2} moment={moment} >
     </Page>
-
     <Page backgroundColor='white' number={3}>
     </Page>
-
     {/* BARRA SUPERIOR */}
-    <TopBar/>
+      <div style={{ position: 'fixed', height: '3vh', width: '100%', top: '0px', zIndex: '999' }}>
+        <p className={barClass} style={{ marginLeft: '10px', display: 'block', width: '8px' }} onClick={e => handleClick()}>
+          {'>'}
+        </p>
+        {isClicked && <div style={{ color:'lightgray', marginLeft: '10px' }}>
+          <p onClick={() => setMoment('morning')}>
+            morning
+          </p>
+          <p onClick={() => setMoment('evening')}>
+            evening
+          </p>
+          <p onClick={() => setMoment('night')}>
+            night
+          </p>
+        </div>}
+      </div>
+      {/* <TopBar setForceMoment={setForceMoment} /> */}
     {/* TÍTULO */}
     <Title/>
     {/* RELOJ */}
     <Clock/>
-    {/* PUNTOS LATERALES */}
-    <Tabs />
     
     {/* <StaticImage
       src="../images/bella.jpg"
@@ -56,5 +77,5 @@ const IndexPage = () => (
     </p> */}
   </Layout>
 )
-
+}
 export default IndexPage
