@@ -17,8 +17,8 @@ const Tabs = () => {
   let scrollToPage = pageNumber => {
     window.scroll({ top: 635 * pageNumber, left: 0, behavior: 'smooth' });
   }
+  
   if (typeof document !== 'undefined') {
-
     document.addEventListener('scroll', e => {
       document.documentElement.scrollTop >= 634 * 2 ?
       setPosition(3) :
