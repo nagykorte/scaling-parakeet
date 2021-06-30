@@ -19,14 +19,16 @@ const Page = (props) => {
     <div
     id={'page' + number}
     style={{background: backgroundColor, width: '100%', height: '100%', zIndex: number === 1 ? '0' : '10' , position: 'absolute', top: screenHeightRequired}}>
-      {
-        number === 2 && 
+      { number === 2 && 
         <div style={{ padding: '10px 10vw', textAlign: 'center', display: 'grid', gridTemplateColumns: '20% 20% 20% 20%'}}>
+          <div className='column floatLeft'>
+          <StaticImage src="../images/tarde3.jpg" width={400} quality={95} />
+            </div> 
+          <div className='column floatRight'>
           <StaticImage src="../images/tarde2.jpg" width={300} quality={95} />
           <StaticImage src="../images/tarde1.jpg" width={300} quality={95} />
-          <StaticImage src="../images/tarde3.jpg" width={400} quality={95} />
-        </div>
-      }
+            </div> 
+        </div> }
     </div>
   )
 }

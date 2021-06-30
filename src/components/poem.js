@@ -16,7 +16,7 @@ const Poem = () => {
   return (
     <>
       <div id={'poem'} className={show} onClick={() => setShow('noShow')}>
-        <p style={{ color: 'white', padding: '10vw', textAlign: 'center', fontSize: '3rem', position: 'relative', lineHeight: '3rem', fontWeight: '300', fontSize: '2rem' }}>
+        <p style={{ color: 'white', padding: '10vw', textAlign: 'center', fontSize: '2rem', position: 'relative', lineHeight: '3rem', fontWeight: '300', fontSize: '2rem' }}>
           En ocasiones la persiana se traba, por suerte hoy no es así,<br></br>
           no tengo mucha fuerza en las mañanas.<br></br>
           Pero si nos quedamos así el sol puede entibiarnos los huesos.
