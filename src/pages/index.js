@@ -4,10 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
-// library.add(faCamera)
-
-// const camera = icon({ prefix: 'fas', iconName: 'camera' })
-
 import Layout from "../components/layout"
 import Title from "../components/title"
 import Tabs from "../components/tabs"
@@ -17,7 +13,7 @@ import Page from "../components/page"
 import Poem from "../components/poem"
 import Seo from "../components/seo"
 // import { fixedImageSizes } from "gatsby-plugin-image/dist/src/image-utils"
-// document.addEventListener('contextmenu', event => event.preventDefault());
+if (typeof document !== 'undefined') document.addEventListener('contextmenu', event => event.preventDefault());
 
 const IndexPage = () => (
   <Layout>
