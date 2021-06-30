@@ -15,24 +15,19 @@ const Tabs = () => {
   const [ position, setPosition ] = React.useState(1)
 
   let scrollToPage = pageNumber => {
-    window.scroll({
-      top: 635 * pageNumber,
-      left: 0,
-      behavior: 'smooth'
-    });
+    window.scroll({ top: 635 * pageNumber, left: 0, behavior: 'smooth' });
   }
-    React.useEffect(()=> {
-      if (typeof document !== 'undefined' && document.documentElement.scrollTop > 1269) {
-        setPosition(3)
-      } else if (typeof document !== 'undefined' && document.documentElement.scrollTop > 634) {
-        setPosition(2)
-      } else {
+
+  document.addEventListener('scroll', e => {
+    document.documentElement.scrollTop >= 634 * 2 ?
+      setPosition(3) :
+      document.documentElement.scrollTop >= 634 ?
+        setPosition(2) :
         setPosition(1)
-      }
-  }, [])
+  })
 
   return (
-    <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed' }}>
+    <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed', zIndex: '999' }}>
       <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
       <br></br>
       <FontAwesomeIcon icon={position === 2 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(1) }} />

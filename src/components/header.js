@@ -4,10 +4,6 @@ import { Link } from "gatsby"
 
 const Header = ({ siteTitle }) => (
   <>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet" />
-  </head>
   <header
     // style={{
     //   background: `#101010`,

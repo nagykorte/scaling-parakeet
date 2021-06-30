@@ -14,6 +14,7 @@ import Tabs from "../components/tabs"
 import TopBar from "../components/topBar"
 import Clock from "../components/clock"
 import Page from "../components/page"
+import Poem from "../components/poem"
 import Seo from "../components/seo"
 // import { fixedImageSizes } from "gatsby-plugin-image/dist/src/image-utils"
 // document.addEventListener('contextmenu', event => event.preventDefault());
@@ -22,14 +23,13 @@ const IndexPage = () => (
   <Layout>
 
     <Seo title="karen's webz yall" />
-    <a href='#secondPage'>
-      asd
-    </a>
+    <Poem />
     <Page backgroundColor='gray' number={1}>
-      asdasd
     </Page>
+
     <Page backgroundColor='darkgray' number={2}>
     </Page>
+
     <Page backgroundColor='white' number={3}>
     </Page>
 

@@ -7,19 +7,26 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
+import { StaticImage } from "gatsby-plugin-image"
+
 
 import "./layout.css"
 
 const Page = (props) => {
   const { backgroundColor, number } = props
-  let time = new Date()
-  let addAZero = (time.getHours() != 10 && time.getHours() != 11 && time.getHours() != 12 && time.getHours() != 22 && time.getHours() != 23)
   const screenHeightRequired = 100 * (number - 1) + 'vh'
   return (
     <div
     id={'page' + number}
-    style={{background: backgroundColor, width: '100%', height: '100%', zIndex: '0', position: 'absolute', top: screenHeightRequired}}>
-      
+    style={{background: backgroundColor, width: '100%', height: '100%', zIndex: number === 1 ? '0' : '10' , position: 'absolute', top: screenHeightRequired}}>
+      {
+        number === 2 && 
+        <div style={{ padding: '10px 10vw', textAlign: 'center', display: 'grid', gridTemplateColumns: '20% 20% 20% 20%'}}>
+          <StaticImage src="../images/tarde2.jpg" width={300} quality={95} />
+          <StaticImage src="../images/tarde1.jpg" width={300} quality={95} />
+          <StaticImage src="../images/tarde3.jpg" width={400} quality={95} />
+        </div>
+      }
     </div>
   )
 }

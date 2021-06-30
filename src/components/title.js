@@ -13,18 +13,18 @@ const Title = () => {
   return (
     <>
       <div style={{
-      // fontFamily: 'Just Another Hand',
-      color: 'black',
-      textAlign: 'left',
-      top: '20%',
-      left: '9%',
-      position: 'fixed',
-      display: 'float',
-    }} id='title'>
-      <h1>
-        SÁBADO
-      </h1>
-    </div>
+        color: 'black',
+        textAlign: 'left',
+        top: '20%',
+        left: '9%',
+        position: 'fixed',
+        display: 'float',
+        zIndex: '1'
+      }} id='title'>
+        <h1>
+          SÁBADO
+        </h1>
+      </div>
     </>
   )
 }

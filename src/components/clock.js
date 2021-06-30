@@ -23,7 +23,8 @@ const Clock = () => {
         top: '10%',
         right: '5%',
         position: 'fixed',
-        textAlign: 'right'
+        textAlign: 'right',
+        zIndex: '2'
       }}>
         <h1>
           {addAZero 
