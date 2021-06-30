@@ -17,15 +17,17 @@ const Tabs = () => {
   let scrollToPage = pageNumber => {
     window.scroll({ top: 635 * pageNumber, left: 0, behavior: 'smooth' });
   }
+  if (typeof document !== 'undefined') {
 
-  document.addEventListener('scroll', e => {
-    document.documentElement.scrollTop >= 634 * 2 ?
+    document.addEventListener('scroll', e => {
+      document.documentElement.scrollTop >= 634 * 2 ?
       setPosition(3) :
       document.documentElement.scrollTop >= 634 ?
-        setPosition(2) :
-        setPosition(1)
-  })
-
+      setPosition(2) :
+      setPosition(1)
+    })
+  }
+    
   return (
     <div style={{ width: '3vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '1vw', position: 'fixed', zIndex: '999' }}>
       <FontAwesomeIcon icon={position === 1 ? faCircle : faCircleNotch} onClick={() => { scrollToPage(0) }} />
