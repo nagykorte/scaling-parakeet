@@ -34,7 +34,7 @@ const IndexPage = () => {
 
     <Page backgroundColor='black' number={2} moment={moment} >
     </Page>
-    <Page backgroundColor='white' number={3}>
+    <Page backgroundColor='black' number={3}>
     </Page>
     {/* BARRA SUPERIOR */}
       <div style={{ position: 'fixed', height: '3vh', width: '100%', top: '0px', zIndex: '999' }}>
